@@ -1,0 +1,157 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}{% translate "Contractors Directory" %} — WMS Control{% endblock %}
+
+{% block content %}
+<div class="container py-4 py-lg-5">
+    <!-- Header Section -->
+    <div class="d-flex flex-wrap justify-content-between align-items-center gap-3 mb-4">
+        <div>
+            <h2 class="fw-bold mb-1">
+                <i class="fa-solid fa-address-book text-warning me-2"></i>{% translate "Contractors" %}
+            </h2>
+            <p class="text-muted small mb-0">{% translate "Directory of suppliers, customers, and business partners" %}</p>
+        </div>
+        {% if user.profile.role == 'manager' or user.is_superuser %}
+            <a href="{% url 'orders:contractor_create' %}" class="btn btn-dark fw-bold rounded-pill px-4 shadow-sm" style="background-color: var(--navbar-background-color-light, #212529); color: var(--navbar-text-color-dark, #ffffff); border: none;">
+                <i class="fa-solid fa-user-plus me-2"></i>{% translate "Add Contractor" %}
+            </a>
+        {% endif %}
+    </div>
+
+    <!-- Search Bar -->
+    <div class="card border-0 shadow-sm rounded-4 mb-4 p-3" style="background-color: var(--card-background-color-dark, #ffffff);">
+        <form method="get" action="" class="row g-2 align-items-center">
+            <div class="col-md-10">
+                <div class="input-group">
+                    <span class="input-group-text bg-transparent border-end-0 text-muted">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </span>
+                    <input type="text" name="q" value="{{ search_query }}" class="form-control border-start-0" placeholder="{% translate 'Search by name, tax ID, phone, email, or address...' %}">
+                </div>
+            </div>
+            <div class="col-md-2 d-flex gap-2">
+                <button type="submit" class="btn btn-dark w-100 rounded-3">{% translate "Search" %}</button>
+                {% if search_query %}
+                    <a href="{% url 'orders:contractor_list' %}" class="btn btn-outline-secondary rounded-3" title="{% translate 'Reset' %}">
+                        <i class="fa-solid fa-xmark"></i>
+                    </a>
+                {% endif %}
+            </div>
+        </form>
+    </div>
+
+    <!-- Contractor Table Card -->
+    <div class="card border-0 shadow-lg rounded-4 overflow-hidden" style="background-color: var(--card-background-color-dark, #ffffff);">
+        <div class="table-responsive">
+            <table class="table table-hover align-middle mb-0">
+                <thead class="table-dark">
+                    <tr>
+                        <th scope="col" class="ps-4">{% translate "Contractor / Legal Entity" %}</th>
+                        <th scope="col">{% translate "Type" %}</th>
+                        <th scope="col">{% translate "Tax ID / INN" %}</th>
+                        <th scope="col">{% translate "Phone" %}</th>
+                        <th scope="col">{% translate "Email" %}</th>
+                        {% if user.profile.role == 'manager' or user.is_superuser %}
+                            <th scope="col" class="text-end pe-4">{% translate "Actions" %}</th>
+                        {% endif %}
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for contractor in contractors %}
+                        <tr>
+                            <td class="ps-4">
+                                <div class="fw-bold fs-6">{{ contractor.name }}</div>
+                                {% if contractor.address %}
+                                    <small class="text-muted d-block"><i class="fa-solid fa-location-dot me-1"></i>{{ contractor.address|truncatewords:8 }}</small>
+                                {% endif %}
+                            </td>
+                            <td>
+                                {% if contractor.contractor_type == 'supplier' %}
+                                    <span class="badge bg-primary rounded-pill px-3">
+                                        <i class="fa-solid fa-truck-ramp-box me-1"></i>{{ contractor.get_contractor_type_display }}
+                                    </span>
+                                {% else %}
+                                    <span class="badge bg-success rounded-pill px-3">
+                                        <i class="fa-solid fa-cart-shopping me-1"></i>{{ contractor.get_contractor_type_display }}
+                                    </span>
+                                {% endif %}
+                            </td>
+                            <td class="font-monospace fw-semibold">{{ contractor.tax_id|default:"—" }}</td>
+                            <td>
+                                {% if contractor.phone %}
+                                    <a href="tel:{{ contractor.phone }}" class="text-decoration-none text-body">
+                                        <i class="fa-solid fa-phone me-1 text-muted small"></i>{{ contractor.phone }}
+                                    </a>
+                                {% else %}
+                                    <span class="text-muted italic">—</span>
+                                {% endif %}
+                            </td>
+                            <td>
+                                {% if contractor.email %}
+                                    <a href="mailto:{{ contractor.email }}" class="text-decoration-none text-body">
+                                        <i class="fa-solid fa-envelope me-1 text-muted small"></i>{{ contractor.email }}
+                                    </a>
+                                {% else %}
+                                    <span class="text-muted italic">—</span>
+                                {% endif %}
+                            </td>
+                            {% if user.profile.role == 'manager' or user.is_superuser %}
+                                <td class="text-end pe-4">
+                                    <a href="{% url 'orders:contractor_update' contractor.pk %}" class="btn btn-sm btn-outline-dark rounded-circle me-1" title="{% translate 'Edit' %}">
+                                        <i class="fa-solid fa-pen"></i>
+                                    </a>
+                                    
+                                    <!-- Кнопка удаления с модальным окном -->
+                                    <button type="button" class="btn btn-sm btn-outline-danger rounded-circle" data-bs-toggle="modal" data-bs-target="#deleteContractorModal{{ contractor.pk }}" title="{% translate 'Delete' %}">
+                                        <i class="fa-solid fa-trash"></i>
+                                    </button>
+
+                                    <!-- Модальное окно подтверждения удаления -->
+                                    <div class="modal fade" id="deleteContractorModal{{ contractor.pk }}" tabindex="-1" aria-hidden="true">
+                                        <div class="modal-dialog modal-dialog-centered">
+                                            <div class="modal-content border-0 shadow-lg rounded-4 text-start">
+                                                <div class="modal-header border-0 pb-0">
+                                                    <h5 class="modal-title fw-bold text-danger">
+                                                        <i class="fa-solid fa-triangle-exclamation me-2"></i>{% translate "Confirm Deletion" %}
+                                                    </h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                </div>
+                                                <div class="modal-body py-3">
+                                                    <p class="mb-0">
+                                                        {% translate "Are you sure you want to delete contractor" %} <strong>"{{ contractor.name }}"</strong>?
+                                                    </p>
+                                                </div>
+                                                <div class="modal-footer border-0 pt-0">
+                                                    <button type="button" class="btn btn-outline-secondary rounded-pill px-3" data-bs-dismiss="modal">
+                                                        {% translate "Cancel" %}
+                                                    </button>
+                                                    <form method="post" action="{% url 'orders:contractor_delete' contractor.pk %}">
+                                                        {% csrf_token %}
+                                                        <button type="submit" class="btn btn-danger rounded-pill px-3">
+                                                            <i class="fa-solid fa-trash me-1"></i>{% translate "Delete" %}
+                                                        </button>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                            {% endif %}
+                        </tr>
+                    {% empty %}
+                        <tr>
+                            <td colspan="6" class="text-center py-5 text-muted">
+                                <i class="fa-solid fa-users-slash fa-3x mb-3 text-secondary d-block"></i>
+                                <h5>{% translate "No contractors found" %}</h5>
+                                <p class="small mb-0">{% translate "Try changing your search query or click 'Add Contractor'." %}</p>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}

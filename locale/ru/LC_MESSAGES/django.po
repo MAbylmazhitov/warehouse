@@ -1,0 +1,1601 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-10-31 07:41+0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || "
+"(n%100>=11 && n%100<=14)? 2 : 3);\n"
+#: .\accounts\forms.py:16
+msgid "First name"
+msgstr ""
+
+#: .\accounts\forms.py:17
+msgid "Last name"
+msgstr "Фамилия"
+
+#: .\accounts\forms.py:18 .\accounts\models.py:27
+#: .\templates\accounts\profile.html:68
+msgid "Phone Number"
+msgstr "Номер телефона"
+
+#: .\accounts\forms.py:19 .\orders\models.py:32
+#: .\templates\accounts\password_reset.html:31
+msgid "Email address"
+msgstr "Адрес электронной почты"
+
+#: .\accounts\forms.py:33
+msgid "A user with this email address already exists."
+msgstr "Пользователь с таким адресом электронной почты уже существует."
+
+#: .\accounts\forms.py:53 .\templates\accounts\profile.html:52
+msgid "First Name"
+msgstr "Имя"
+
+#: .\accounts\forms.py:54 .\templates\accounts\profile.html:56
+msgid "Last Name"
+msgstr "Фамилия"
+
+#: .\accounts\forms.py:55 .\templates\accounts\profile.html:60
+msgid "Email Address"
+msgstr "Адрес электронной почты"
+
+#: .\accounts\models.py:20
+msgid "Storekeeper / Warehouse Operator"
+msgstr "Кладовщик / Оператор склада"
+
+#: .\accounts\models.py:21
+msgid "Supply & Sales Manager"
+msgstr "Менеджер по снабжению и продажам"
+
+#: .\accounts\models.py:22
+msgid "Warehouse Administrator"
+msgstr "Администратор склада"
+
+#: .\accounts\models.py:25
+msgid "User"
+msgstr "Пользователь"
+
+#: .\accounts\models.py:26
+msgid "Role"
+msgstr "Роль"
+
+#: .\accounts\models.py:28
+msgid "Employee Badge / Barcode"
+msgstr "Бейдж сотрудника / Штрихкод"
+
+#: .\accounts\models.py:28
+msgid "Barcode or badge code for quick TSD authorization"
+msgstr "Штрихкод или код бейджа для быстрой авторизации на ТСД"
+
+#: .\accounts\models.py:29
+msgid "Avatar"
+msgstr "Аватар"
+
+#: .\accounts\models.py:32
+msgid "Warehouse Profile"
+msgstr "Профиль сотрудника склада"
+
+#: .\accounts\models.py:33
+msgid "Warehouse Profiles"
+msgstr "Профили сотрудников склада"
+
+#: .\accounts\views.py:57 .\accounts\views.py:78
+msgid "Account created successfully. Welcome to WMS Control!"
+msgstr "Учетная запись успешно создана. Добро пожаловать в WMS Control!"
+
+#: .\accounts\views.py:109
+msgid "Profile successfully updated."
+msgstr "Профиль успешно обновлен."
+
+#: .\accounts\views.py:163
+msgid "Storekeeper account successfully created."
+msgstr "Учетная запись кладовщика успешно создана."
+
+#: .\inventory\forms.py:14
+msgid "e.g., Fasteners, Electronics"
+msgstr "например, Крепеж, Электроника"
+
+#: .\inventory\forms.py:30
+msgid "pcs, kg, m"
+msgstr "шт., кг, м"
+
+#: .\inventory\forms.py:44
+msgid "e.g., Zone A"
+msgstr "например, Зона А"
+
+#: .\inventory\forms.py:45
+msgid "e.g., R-01"
+msgstr "например, С-01"
+
+#: .\inventory\forms.py:46
+msgid "e.g., S-03"
+msgstr "например, П-03"
+
+#: .\inventory\forms.py:47
+msgid "e.g., C-12"
+msgstr "например, Я-12"
+
+#: .\inventory\models.py:13
+msgid "Category name"
+msgstr "Наименование категории"
+
+#: .\inventory\models.py:14 .\inventory\models.py:39
+#: .\templates\inventory\manage\category_list.html:51
+#: .\templates\inventory\product_details.html:41
+msgid "Description"
+msgstr "Описание"
+
+#: .\inventory\models.py:15
+msgid "Display order"
+msgstr "Порядок отображения"
+
+#: .\inventory\models.py:18 .\inventory\models.py:32
+#: .\templates\inventory\product_details.html:26
+#: .\templates\inventory\product_list.html:50
+#: .\templates\orders\reports_dashboard.html:49
+#: .\templates\orders\reports_dashboard.html:107
+#: .\templates\orders\reports_dashboard.html:123
+msgid "Category"
+msgstr "Категория"
+
+#: .\inventory\models.py:19 .\templates\base.html:59
+msgid "Categories"
+msgstr "Категории"
+
+#: .\inventory\models.py:34 .\templates\inventory\product_list.html:48
+msgid "SKU / Article"
+msgstr "Артикул / SKU"
+
+#: .\inventory\models.py:35 .\templates\inventory\product_details.html:29
+msgid "Barcode"
+msgstr "Штрихкод"
+
+#: .\inventory\models.py:36
+msgid "Product name"
+msgstr "Наименование номенклатуры"
+
+#: .\inventory\models.py:37
+msgid "Unit of measurement"
+msgstr "Единица измерения"
+
+#: .\inventory\models.py:38
+msgid "Minimum stock balance"
+msgstr "Минимальный складской остаток"
+
+#: .\inventory\models.py:40
+msgid "Product image"
+msgstr "Изображение товара"
+
+#: .\inventory\models.py:41
+msgid "Is active status"
+msgstr "Статус активности"
+
+#: .\inventory\models.py:44 .\inventory\models.py:76 .\orders\models.py:109
+#: .\orders\models.py:150 .\templates\inventory\stock_balance_list.html:28
+#: .\templates\orders\document_detail.html:59
+#: .\templates\orders\reports_dashboard.html:106
+#: .\templates\orders\reports_dashboard.html:122
+msgid "Product"
+msgstr "Товар / Номенклатура"
+
+#: .\inventory\models.py:45
+msgid "Products"
+msgstr "Номенклатура / Товары"
+
+#: .\inventory\models.py:54
+msgid "Warehouse zone"
+msgstr "Зона склада"
+
+#: .\inventory\models.py:55 .\templates\inventory\manage\location_list.html:52
+msgid "Rack"
+msgstr "Стеллаж"
+
+#: .\inventory\models.py:56 .\templates\inventory\manage\location_list.html:53
+msgid "Shelf / Level"
+msgstr "Полка / Ярус"
+
+#: .\inventory\models.py:57
+msgid "Cell / Position"
+msgstr "Ячейка / Позиция"
+
+#: .\inventory\models.py:58
+msgid "Location barcode"
+msgstr "Штрихкод ячейки хранения"
+
+#: .\inventory\models.py:61 .\inventory\models.py:82 .\orders\models.py:156
+msgid "Storage location"
+msgstr "Место хранения"
+
+#: .\inventory\models.py:62
+msgid "Storage locations"
+msgstr "Места хранения"
+
+#: .\inventory\models.py:84
+msgid "Current quantity"
+msgstr "Текущее количество"
+
+#: .\inventory\models.py:87
+msgid "Stock balance"
+msgstr "Складской остаток"
+
+#: .\inventory\models.py:88
+msgid "Stock balances"
+msgstr "Складские остатки"
+
+#: .\orders\models.py:19
+msgid "Supplier"
+msgstr "Поставщик"
+
+#: .\orders\models.py:20
+msgid "Customer"
+msgstr "Покупатель / Клиент"
+
+#: .\orders\models.py:23
+msgid "Contractor name / Legal entity"
+msgstr "Наименование контрагента / Юр. лицо"
+
+#: .\orders\models.py:25
+msgid "Contractor type"
+msgstr "Тип контрагента"
+
+#: .\orders\models.py:30 .\templates\orders\contractor_list.html:53
+msgid "Tax ID / INN"
+msgstr "ИНН"
+
+#: .\orders\models.py:31
+msgid "Phone number"
+msgstr "Номер телефона"
+
+#: .\orders\models.py:33
+msgid "Legal address"
+msgstr "Юридический адрес"
+
+#: .\orders\models.py:36 .\orders\models.py:76
+#: .\templates\orders\document_detail.html:39
+#: .\templates\orders\document_list.html:47
+#: .\templates\orders\reports_dashboard.html:76
+#: .\templates\orders\reports_dashboard.html:115
+msgid "Contractor"
+msgstr "Контрагент"
+
+#: .\orders\models.py:37 .\templates\base.html:72 .\templates\index.html:76
+#: .\templates\orders\contractor_list.html:12
+msgid "Contractors"
+msgstr "Контрагенты"
+
+#: .\orders\models.py:52
+msgid "Receipt / Incoming"
+msgstr "Приходная накладная (Приход)"
+
+#: .\orders\models.py:53
+msgid "Expense / Outgoing"
+msgstr "Расходная накладная (Расход)"
+
+#: .\orders\models.py:54
+msgid "Internal Transfer"
+msgstr "Внутреннее перемещение"
+
+#: .\orders\models.py:55
+msgid "Inventory Audit"
+msgstr "Инвентаризация"
+
+#: .\orders\models.py:63
+msgid "Draft"
+msgstr "Черновик"
+
+#: .\orders\models.py:64
+msgid "Conducted"
+msgstr "Проведен"
+
+#: .\orders\models.py:65
+msgid "Cancelled"
+msgstr "Распроведен / Отменен"
+
+#: .\orders\models.py:68
+msgid "Document number"
+msgstr "Номер документа"
+
+#: .\orders\models.py:69
+msgid "Document type"
+msgstr "Тип документа"
+
+#: .\orders\models.py:82
+msgid "Author / Responsible user"
+msgstr "Автор / Ответственное лицо"
+
+#: .\orders\models.py:84
+msgid "Document date"
+msgstr "Дата документа"
+
+#: .\orders\models.py:85 .\templates\orders\document_list.html:49
+#: .\templates\orders\reports_dashboard.html:117
+msgid "Status"
+msgstr "Статус"
+
+#: .\orders\models.py:86
+msgid "Comment"
+msgstr "Комментарий"
+
+#: .\orders\models.py:89
+msgid "Stock document"
+msgstr "Складской документ"
+
+#: .\orders\models.py:90
+msgid "Stock documents"
+msgstr "Складские документы"
+
+#: .\orders\models.py:103 .\templates\orders\document_detail.html:11
+#: .\templates\orders\document_item_form.html:17
+msgid "Document"
+msgstr "Документ"
+
+#: .\orders\models.py:117
+msgid "Source location (From)"
+msgstr "Место-источник (Откуда)"
+
+#: .\orders\models.py:125
+msgid "Target location (To)"
+msgstr "Место-получатель (Куда)"
+
+#: .\orders\models.py:127 .\templates\inventory\product_details.html:64
+#: .\templates\inventory\stock_balance_list.html:32
+#: .\templates\orders\document_detail.html:62
+#: .\templates\orders\reports_dashboard.html:109
+msgid "Quantity"
+msgstr "Количество"
+
+#: .\orders\models.py:128
+msgid "Unit price"
+msgstr "Цена за единицу"
+
+#: .\orders\models.py:131
+msgid "Document item"
+msgstr "Позиция документа"
+
+#: .\orders\models.py:132
+msgid "Document items"
+msgstr "Позиции документа"
+
+#: .\orders\models.py:144
+msgid "Audit document"
+msgstr "Документ инвентаризации"
+
+#: .\orders\models.py:158
+msgid "Accounting quantity"
+msgstr "Учетное количество"
+
+#: .\orders\models.py:159
+msgid "Actual quantity"
+msgstr "Фактическое количество"
+
+#: .\orders\models.py:160
+msgid "Difference (Actual - Accounting)"
+msgstr "Расхождение (Факт - Учет)"
+
+#: .\orders\models.py:163
+msgid "Inventory audit entry"
+msgstr "Запись инвентаризации"
+
+#: .\orders\models.py:164
+msgid "Inventory audit entries"
+msgstr "Записи инвентаризации"
+
+#: .\orders\views.py:115
+msgid "Conducted or cancelled documents cannot be edited."
+msgstr "Проведенные или отмененные документы нельзя редактировать."
+
+#: .\orders\views.py:130
+msgid "Only draft documents can be conducted."
+msgstr "Проводить можно только черновики документов."
+
+#: .\orders\views.py:134
+msgid "Cannot conduct an empty document without items."
+msgstr "Нельзя провести пустой документ без позиций."
+
+#: .\orders\views.py:140
+msgid "Target location is required for incoming document."
+msgstr "Для приходного документа необходимо указать место-получатель."
+
+#: .\orders\views.py:152
+msgid "Source location is required for outgoing document."
+msgstr "Для расходного документа необходимо указать место-источник."
+
+#: .\orders\views.py:159
+#, python-format
+msgid "Insufficient stock for product \"%(product)s\"."
+msgstr "Недостаточно товара «%(product)s» на складе."
+
+#: .\orders\views.py:166
+msgid "Source and Target locations are required for transfer."
+msgstr "Для перемещения необходимо указать место-источник и место-получатель."
+
+#: .\orders\views.py:173
+#, python-format
+msgid "Insufficient stock for transfer of \"%(product)s\"."
+msgstr "Недостаточно товара «%(product)s» для выполнения перемещения."
+
+#: .\orders\views.py:188
+#, python-format
+msgid "Document №%(number)s successfully conducted."
+msgstr "Документ №%(number)s успешно проведен."
+
+#: .\orders\views.py:196
+msgid "Only conducted documents can be cancelled."
+msgstr "Отменить проведение можно только у проведенных документов."
+
+#: .\orders\views.py:201
+#, python-format
+msgid "Document №%(number)s has been cancelled."
+msgstr "Проведение документа №%(number)s отменено."
+
+#: .\orders\views.py:211
+msgid "Cannot add items to a conducted document."
+msgstr "Нельзя добавлять позиции в проведенный документ."
+
+#: .\orders\views.py:233
+msgid "Item removed from document."
+msgstr "Позиция удалена из документа."
+
+#: .\orders\views.py:235
+msgid "Cannot delete items from a conducted document."
+msgstr "Нельзя удалять позиции из проведенного документа."
+
+#: .\templates\about.html:5
+msgid "About Hub & WMS"
+msgstr "О платформе WMS"
+
+#: .\templates\about.html:13
+msgid "WMS Control Platform"
+msgstr "Платформа WMS Control"
+
+#: .\templates\about.html:16
+msgid ""
+"High-performance Warehouse Management System engineered for total control "
+"over logistics, inventory balances, and document flows."
+msgstr ""
+"Высокопроизводительная система управления складом (WMS), разработанная для "
+"полного контроля над логистикой, складскими остатками и документооборотом."
+
+#: .\templates\about.html:19
+msgid ""
+"Our platform provides comprehensive tools for warehouse space topology, "
+"target location addressing (Zone-Rack-Shelf-Cell), multi-role access "
+"control, and transactional stock document processing."
+msgstr ""
+"Наша платформа предоставляет полный набор инструментов для топологии складских "
+"площадей, адресного хранения (Зона-Стеллаж-Полка-Ячейка), многоролевого "
+"разграничения доступа и транзакционной обработки складских документов."
+
+#: .\templates\about.html:25
+msgid "Explore Catalog"
+msgstr "Перейти в каталог"
+
+#: .\templates\about.html:28
+msgid "Documents Journal"
+msgstr "Журнал документов"
+
+#: .\templates\about.html:44
+msgid "Logistics Hub Infrastructure"
+msgstr "Инфраструктура логистического хаба"
+
+#: .\templates\about.html:45
+msgid ""
+"Modern automated warehousing with precise item tracking and barcode "
+"addressing"
+msgstr ""
+"Современный автоматизированный склад с точным учетом ТМЦ и адресным штрихкодированием"
+
+#: .\templates\about.html:55
+msgid "Storage Topology"
+msgstr "Топология хранения"
+
+#: .\templates\about.html:56
+msgid "Structured zones, racks, and shelf-cell addressing."
+msgstr "Структурированные зоны, стеллажи и адресация полок-ячеек."
+
+#: .\templates\about.html:65
+msgid "Barcode Scanning"
+msgstr "Сканирование штрихкодов"
+
+#: .\templates\about.html:66
+msgid "Fast identification of goods and storage locations."
+msgstr "Быстрая идентификация товаров и мест хранения."
+
+#: .\templates\about.html:75
+msgid "Audit & Documents"
+msgstr "Инвентаризация и документы"
+
+#: .\templates\about.html:76
+msgid "Transactional incoming, outgoing, and transfer records."
+msgstr "Транзакционный учет прихода, расхода и перемещений."
+
+#: .\templates\accounts\email\password_reset_email.html:3
+msgid ""
+"You're receiving this email because you requested a password reset for your "
+"user account at"
+msgstr ""
+"Вы получили это письмо, потому что запросили сброс пароля для вашей "
+"учетной записи на"
+
+#: .\templates\accounts\email\password_reset_email.html:5
+msgid "Please go to the following page and choose a new password:"
+msgstr "Пожалуйста, перейдите на следующую страницу и выберите новый пароль:"
+
+#: .\templates\accounts\email\password_reset_email.html:10
+msgid "Your username, in case you've forgotten:"
+msgstr "Ваше имя пользователя на случай, если вы его забыли:"
+
+#: .\templates\accounts\email\password_reset_email.html:12
+msgid "Thanks for using our system!"
+msgstr "Спасибо за использование нашей системы!"
+
+#: .\templates\accounts\email\password_reset_email.html:14
+msgid "The WMS Control Team"
+msgstr "Команда WMS Control"
+
+#: .\templates\accounts\email\password_reset_subject.txt:1
+msgid "Password reset on"
+msgstr "Сброс пароля на"
+
+#: .\templates\accounts\login.html:4 .\templates\accounts\login.html:43
+#: .\templates\accounts\password_reset_complete.html:18
+#: .\templates\accounts\signup.html:64
+msgid "Sign in"
+msgstr "Войти"
+
+#: .\templates\accounts\login.html:14
+msgid "WMS Control"
+msgstr "WMS Control"
+
+#: .\templates\accounts\login.html:15
+msgid "Warehouse Management System Authorization"
+msgstr "Авторизация в системе управления складом"
+
+#: .\templates\accounts\login.html:29
+msgid "Username"
+msgstr "Имя пользователя"
+
+#: .\templates\accounts\login.html:35
+msgid "Password"
+msgstr "Пароль"
+
+#: .\templates\accounts\login.html:36
+msgid "Forgot password?"
+msgstr "Забыли пароль?"
+
+#: .\templates\accounts\login.html:50
+msgid "Don't have an account?"
+msgstr "Нет учетной записи?"
+
+#: .\templates\accounts\login.html:51 .\templates\accounts\signup.html:4
+#: .\templates\accounts\signup.html:56 .\templates\base.html:140
+msgid "Sign up"
+msgstr "Зарегистрироваться"
+
+#: .\templates\accounts\my_account.html:4
+msgid "Edit Profile"
+msgstr "Редактировать профиль"
+
+#: .\templates\accounts\my_account.html:15
+msgid "Edit Account Details"
+msgstr "Редактировать данные учетной записи"
+
+#: .\templates\accounts\my_account.html:16
+msgid "Update personal information for warehouse identity"
+msgstr "Обновление персональной информации сотрудника склада"
+
+#: .\templates\accounts\my_account.html:51
+#: .\templates\inventory\manage\category_form.html:60
+#: .\templates\inventory\manage\category_list.html:111
+#: .\templates\inventory\manage\location_form.html:78
+#: .\templates\inventory\manage\location_list.html:111
+#: .\templates\inventory\manage\product_form.html:118
+#: .\templates\inventory\product_list.html:105
+#: .\templates\orders\contractor_form.html:91
+#: .\templates\orders\contractor_list.html:128
+#: .\templates\orders\document_form.html:83
+msgid "Cancel"
+msgstr "Отмена"
+
+#: .\templates\accounts\my_account.html:54 .\templates\accounts\profile.html:83
+msgid "Save Changes"
+msgstr "Сохранить изменения"
+
+#: .\templates\accounts\password_change.html:4
+#: .\templates\accounts\password_change.html:15 .\templates\base.html:125
+msgid "Change Password"
+msgstr "Изменить пароль"
+
+#: .\templates\accounts\password_change.html:16
+msgid "Update your security credentials"
+msgstr "Обновление учетных данных безопасности"
+
+#: .\templates\accounts\password_change.html:51
+msgid "Back"
+msgstr "Назад"
+
+#: .\templates\accounts\password_change.html:54
+msgid "Update Password"
+msgstr "Обновить пароль"
+
+#: .\templates\accounts\password_change_done.html:4
+msgid "Password changed"
+msgstr "Пароль изменен"
+
+#: .\templates\accounts\password_change_done.html:13
+msgid "Password changed successfully"
+msgstr "Пароль успешно изменен"
+
+#: .\templates\accounts\password_change_done.html:15
+msgid ""
+"Your password has been updated. You can now use your new password to sign in."
+msgstr ""
+"Ваш пароль был обновлен. Теперь вы можете использовать новый пароль для входа."
+
+#: .\templates\accounts\password_change_done.html:18
+msgid "Back to profile"
+msgstr "Вернуться в профиль"
+
+#: .\templates\accounts\password_reset.html:4
+#: .\templates\accounts\password_reset.html:14
+msgid "Reset password"
+msgstr "Сбросить пароль"
+
+#: .\templates\accounts\password_reset.html:16
+msgid ""
+"Enter your email address and we will send you a link to reset your password."
+msgstr ""
+"Введите ваш адрес электронной почты, и мы отправим вам ссылку для сброса пароля."
+
+#: .\templates\accounts\password_reset.html:40
+msgid "Send reset link"
+msgstr "Отправить ссылку для сброса"
+
+#: .\templates\accounts\password_reset.html:47
+msgid "Back to sign in"
+msgstr "Вернуться к входу"
+
+#: .\templates\accounts\password_reset_complete.html:4
+#: .\templates\accounts\password_reset_complete.html:13
+msgid "Password reset complete"
+msgstr "Сброс пароля завершен"
+
+#: .\templates\accounts\password_reset_complete.html:15
+msgid "Your password has been set. You may now go ahead and sign in."
+msgstr "Ваш новый пароль установлен. Теперь вы можете войти в систему."
+
+#: .\templates\accounts\password_reset_confirm.html:4
+#: .\templates\accounts\password_reset_confirm.html:15
+msgid "Set new password"
+msgstr "Установить новый пароль"
+
+#: .\templates\accounts\password_reset_confirm.html:17
+msgid "Please enter your new password twice to confirm."
+msgstr "Пожалуйста, введите новый пароль дважды для подтверждения."
+
+#: .\templates\accounts\password_reset_confirm.html:51
+msgid "Change my password"
+msgstr "Изменить мой пароль"
+
+#: .\templates\accounts\password_reset_confirm.html:58
+msgid "Invalid or expired link"
+msgstr "Недействительная или устаревшая ссылка"
+
+#: .\templates\accounts\password_reset_confirm.html:60
+msgid ""
+"The password reset link was invalid, possibly because it has already been "
+"used or has expired."
+msgstr ""
+"Ссылка для сброса пароля недействительна. Возможно, она уже использовалась "
+"или истек срок ее действия."
+
+#: .\templates\accounts\password_reset_confirm.html:63
+msgid "Request a new link"
+msgstr "Запросить новую ссылку"
+
+#: .\templates\accounts\password_reset_done.html:4
+msgid "Reset link sent"
+msgstr "Ссылка для сброса отправлена"
+
+#: .\templates\accounts\password_reset_done.html:13
+msgid "Check your email"
+msgstr "Проверьте вашу почту"
+
+#: .\templates\accounts\password_reset_done.html:15
+msgid ""
+"We have emailed you instructions for setting your password. If an account "
+"exists with the email you entered, you should receive it shortly."
+msgstr ""
+"Мы отправили инструкции по установке пароля на ваш email. Если аккаунт с "
+"указанным адресом существует, вы получите письмо в ближайшее время."
+
+#: .\templates\accounts\password_reset_done.html:18
+msgid "Return to sign in"
+msgstr "Вернуться к входу"
+
+#: .\templates\accounts\profile.html:5 .\templates\base.html:124
+msgid "My Profile"
+msgstr "Мой профиль"
+
+#: .\templates\accounts\profile.html:32
+msgid "TSD Badge Barcode"
+msgstr "Штрихкод бейджа ТСД"
+
+#: .\templates\accounts\profile.html:43
+msgid "Edit Profile Settings"
+msgstr "Настройки профиля"
+
+#: .\templates\accounts\profile.html:49
+msgid "Personal Information"
+msgstr "Персональная информация"
+
+#: .\templates\accounts\profile.html:65
+msgid "Warehouse Identification & Avatar"
+msgstr "Складская идентификация и аватар"
+
+#: .\templates\accounts\profile.html:72
+msgid "Employee Badge Code"
+msgstr "Код бейджа сотрудника"
+
+#: .\templates\accounts\profile.html:76
+msgid "Avatar Image"
+msgstr "Изображение аватара"
+
+#: .\templates\accounts\signup.html:14
+msgid "Create account"
+msgstr "Создать учетную запись"
+
+#: .\templates\accounts\signup.html:16
+msgid "Join WMS Control for employee system access"
+msgstr "Регистрация в WMS Control для получения доступа сотрудника"
+
+#: .\templates\accounts\signup.html:63
+msgid "Already have an account?"
+msgstr "Уже есть учетная запись?"
+
+#: .\templates\base.html:8
+msgid "WMS Control — Warehouse Management System"
+msgstr "WMS Control — Система управления складом"
+
+#: .\templates\base.html:43 .\templates\base.html:182
+msgid "Home"
+msgstr "Главная"
+
+#: .\templates\base.html:52
+msgid "Inventory"
+msgstr "Складской учет"
+
+#: .\templates\base.html:55 .\templates\index.html:42
+#: .\templates\inventory\product_list.html:4
+#: .\templates\inventory\product_list.html:10
+msgid "Products Catalog"
+msgstr "Каталог номенклатуры"
+
+#: .\templates\base.html:56 .\templates\index.html:93
+#: .\templates\inventory\stock_balance_list.html:4
+#: .\templates\orders\reports_dashboard.html:21
+msgid "Stock Balances"
+msgstr "Складские остатки"
+
+#: .\templates\base.html:60 .\templates\inventory\manage\location_list.html:12
+msgid "Storage Locations"
+msgstr "Места хранения"
+
+#: .\templates\base.html:68 .\templates\index.html:59
+msgid "Documents"
+msgstr "Документооборот"
+
+#: .\templates\base.html:71 .\templates\orders\document_list.html:10
+msgid "Stock Documents"
+msgstr "Складские документы"
+
+#: .\templates\base.html:78
+msgid "Reports"
+msgstr "Отчеты и аналитика"
+
+#: .\templates\base.html:86
+msgid "About Hub"
+msgstr "О хабе"
+
+#: .\templates\base.html:89 .\templates\base.html:186
+msgid "Contacts"
+msgstr "Контакты"
+
+#: .\templates\base.html:120
+msgid "Administration"
+msgstr "Администрирование"
+
+#: .\templates\base.html:121 .\templates\index.html:138
+msgid "Staff Management"
+msgstr "Управление персоналом"
+
+#: .\templates\base.html:131
+msgid "Log Out"
+msgstr "Выйти"
+
+#: .\templates\base.html:139
+msgid "Log in"
+msgstr "Войти"
+
+#: .\templates\base.html:184
+msgid "About"
+msgstr "О платформе"
+
+#: .\templates\base.html:191
+msgid "Role-based Access Control"
+msgstr "Ролевое разграничение доступа"
+
+#: .\templates\contact.html:5
+msgid "Warehouse Location & Contacts"
+msgstr "Расположение склада и контакты"
+
+#: .\templates\contact.html:12
+msgid "Warehouse Contacts & Location"
+msgstr "Контакты и расположение склада"
+
+#: .\templates\contact.html:15
+msgid ""
+"Logistics hub address, receiving hours, and direct contact details for "
+"inventory management."
+msgstr ""
+"Адрес логистического хаба, часы приемки и прямые контакты службы "
+"управления запасами."
+
+#: .\templates\contact.html:28
+msgid "Logistics Hub Address"
+msgstr "Адрес логистического хаба"
+
+#: .\templates\contact.html:30
+msgid "Address"
+msgstr "г. Санкт-Петербург, Московское шоссе, 153 "
+
+#: .\templates\contact.html:40
+msgid "Receiving & Shipping Hours"
+msgstr "Часы приемки и отгрузки"
+
+#: .\templates\contact.html:42
+msgid "Weekday opening hours"
+msgstr "В будние дни 09:00-18:00"
+
+#: .\templates\contact.html:43
+msgid "Weekend opening hours"
+msgstr "В выходные дни 10:00-14:00"
+
+#: .\templates\contact.html:53
+msgid "Company name"
+msgstr "Склад-Сервис"
+
+#: .\templates\contact.html:55
+msgid "My Phone number"
+msgstr "+7-999-123-4567"
+
+#: .\templates\contact.html:56
+msgid "My Email"
+msgstr "service@store.ru"
+
+#: .\templates\contact.html:83
+msgid "Dispatcher Inquiry"
+msgstr "Запрос диспетчеру"
+
+#: .\templates\contact.html:86
+msgid ""
+"Need assistance with a shipment, stock discrepancy, or carrier access? Send "
+"a quick query to the warehouse manager."
+msgstr ""
+"Нужна помощь с поставкой, пересортицей или пропуском перевозчика? Отправьте "
+"быстрый запрос началу склада."
+
+#: .\templates\contact.html:92
+msgid "Your Name / Carrier"
+msgstr "Ваше имя / Перевозчик"
+
+#: .\templates\contact.html:93
+msgid "John Doe (Logistics Operator)"
+msgstr "Иван Иванов (Логистический оператор)"
+
+#: .\templates\contact.html:96
+msgid "Phone / Email"
+msgstr "Телефон / Email"
+
+#: .\templates\contact.html:100
+msgid "Inquiry Details"
+msgstr "Детали запроса"
+
+#: .\templates\contact.html:101
+msgid "Specify document number, TTN, or product SKU..."
+msgstr "Укажите номер документа, ТТН или артикул товара..."
+
+#: .\templates\contact.html:104
+msgid "Submit Inquiry"
+msgstr "Отправить запрос"
+
+#: .\templates\index.html:5
+msgid "Dashboard"
+msgstr "Панель управления"
+
+#: .\templates\index.html:14
+msgid "Warehouse Management System"
+msgstr "Система управления складом"
+
+#: .\templates\index.html:17
+msgid ""
+"Centralized control of inventory, stock locations, and document movement."
+msgstr ""
+"Централизованный контроль запасов, мест хранения и движения документов."
+
+#: .\templates\index.html:28
+msgid "Log in to System"
+msgstr "Войти в систему"
+
+#: .\templates\index.html:50
+msgid "View catalog"
+msgstr "Открыть каталог"
+
+#: .\templates\index.html:67
+msgid "Open journal"
+msgstr "Открыть журнал"
+
+#: .\templates\index.html:84
+msgid "View contractors"
+msgstr "Просмотр контрагентов"
+
+#: .\templates\index.html:101
+msgid "Check cell balances"
+msgstr "Проверить остатки в ячейках"
+
+#: .\templates\index.html:108
+msgid "Quick Operations"
+msgstr "Быстрые операции"
+
+#: .\templates\index.html:113
+msgid "New Stock Document"
+msgstr "Новый складской документ"
+
+#: .\templates\index.html:114
+msgid "Receipt, expense, or transfer"
+msgstr "Приход, расход или перемещение"
+
+#: .\templates\index.html:121
+msgid "Add New Product"
+msgstr "Добавить номенклатуру"
+
+#: .\templates\index.html:122
+msgid "Create SKU card"
+msgstr "Создать карточку товара"
+
+#: .\templates\index.html:130
+msgid "Create Storage Cell"
+msgstr "Создать ячейку хранения"
+
+#: .\templates\index.html:131
+msgid "Warehouse topography"
+msgstr "Топология склада"
+
+#: .\templates\index.html:139
+msgid "Storekeepers and access"
+msgstr "Кладовщики и права доступа"
+
+#: .\templates\index.html:149
+msgid "Authentication Required"
+msgstr "Требуется авторизация"
+
+#: .\templates\index.html:151
+msgid ""
+"To access warehouse operations, inventory balance tracking, and document "
+"workflows, please sign in with your corporate account credentials."
+msgstr ""
+"Для доступа к складским операциям, учету остатков и документообороту, "
+"пожалуйста, войдите под своей корпоративной учетной записью."
+
+#: .\templates\index.html:155
+msgid "Log In"
+msgstr "Войти"
+
+#: .\templates\index.html:158
+msgid "Register"
+msgstr "Зарегистрироваться"
+
+#: .\templates\inventory\manage\category_form.html:5
+#: .\templates\inventory\manage\category_form.html:17
+msgid "Edit Category"
+msgstr "Редактировать категорию"
+
+#: .\templates\inventory\manage\category_form.html:5
+#: .\templates\inventory\manage\category_list.html:17
+msgid "Add Category"
+msgstr "Добавить категорию"
+
+#: .\templates\inventory\manage\category_form.html:17
+msgid "Create Category"
+msgstr "Создать категорию"
+
+#: .\templates\inventory\manage\category_form.html:19
+msgid "Nomenclature classification and sorting settings"
+msgstr "Классификация номенклатуры и настройки сортировки"
+
+#: .\templates\inventory\manage\category_form.html:63
+msgid "Save Category"
+msgstr "Сохранить категорию"
+
+#: .\templates\inventory\manage\category_list.html:4
+msgid "Categories Management"
+msgstr "Управление категориями"
+
+#: .\templates\inventory\manage\category_list.html:12
+msgid "Product Categories"
+msgstr "Категории товаров"
+
+#: .\templates\inventory\manage\category_list.html:14
+msgid "Manage nomenclature hierarchy, descriptions, and display sorting"
+msgstr "Управление иерархией номенклатуры, описаниями и порядком отображения"
+
+#: .\templates\inventory\manage\category_list.html:29
+msgid "Search by category name or description..."
+msgstr "Поиск по названию категории или описанию..."
+
+#: .\templates\inventory\manage\category_list.html:33
+#: .\templates\inventory\manage\location_list.html:35
+#: .\templates\inventory\product_list.html:32
+#: .\templates\inventory\stock_balance_list.html:19
+#: .\templates\orders\contractor_list.html:35
+#: .\templates\orders\document_list.html:30
+msgid "Search"
+msgstr "Найти"
+
+#: .\templates\inventory\manage\category_list.html:35
+#: .\templates\inventory\manage\location_list.html:37
+#: .\templates\inventory\product_list.html:34
+#: .\templates\orders\contractor_list.html:37
+#: .\templates\orders\document_list.html:32
+#: .\templates\orders\reports_dashboard.html:93
+msgid "Reset"
+msgstr "Сбросить"
+
+#: .\templates\inventory\manage\category_list.html:49
+msgid "Order"
+msgstr "Порядок"
+
+#: .\templates\inventory\manage\category_list.html:50
+msgid "Category Name"
+msgstr "Название категории"
+
+#: .\templates\inventory\manage\category_list.html:52
+msgid "Products Count"
+msgstr "Количество товаров"
+
+#: .\templates\inventory\manage\category_list.html:53
+#: .\templates\inventory\manage\location_list.html:58
+#: .\templates\inventory\product_list.html:53
+#: .\templates\orders\contractor_list.html:57
+#: .\templates\orders\document_list.html:50
+msgid "Actions"
+msgstr "Действия"
+
+#: .\templates\inventory\manage\category_list.html:79
+#: .\templates\inventory\manage\location_list.html:85
+#: .\templates\inventory\product_list.html:78
+#: .\templates\orders\contractor_list.html:102
+msgid "Edit"
+msgstr "Редактировать"
+
+#: .\templates\inventory\manage\category_list.html:84
+#: .\templates\inventory\manage\category_list.html:116
+#: .\templates\inventory\manage\location_list.html:90
+#: .\templates\inventory\manage\location_list.html:116
+#: .\templates\inventory\product_list.html:84
+#: .\templates\inventory\product_list.html:110
+#: .\templates\orders\contractor_list.html:107
+#: .\templates\orders\contractor_list.html:133
+msgid "Delete"
+msgstr "Удалить"
+
+#: .\templates\inventory\manage\category_list.html:94
+#: .\templates\inventory\manage\location_list.html:100
+#: .\templates\inventory\product_list.html:94
+#: .\templates\orders\contractor_list.html:117
+msgid "Confirm Deletion"
+msgstr "Подтверждение удаления"
+
+#: .\templates\inventory\manage\category_list.html:100
+msgid "Are you sure you want to delete category"
+msgstr "Вы уверены, что хотите удалить категорию"
+
+#: .\templates\inventory\manage\category_list.html:105
+msgid "Warning: This category contains linked products!"
+msgstr "Внимание: Эта категория содержит связанные товары!"
+
+#: .\templates\inventory\manage\category_list.html:129
+msgid "No categories found"
+msgstr "Категории не найдены"
+
+#: .\templates\inventory\manage\category_list.html:130
+msgid "Try changing your search query or click 'Add Category'."
+msgstr "Попробуйте изменить поисковый запрос или нажмите «Добавить категорию»."
+
+#: .\templates\inventory\manage\location_form.html:5
+msgid "Edit Location"
+msgstr "Редактировать место хранения"
+
+#: .\templates\inventory\manage\location_form.html:5
+msgid "Add Storage Location"
+msgstr "Добавить место хранения"
+
+#: .\templates\inventory\manage\location_form.html:17
+msgid "Edit Cell Addressing"
+msgstr "Редактировать адресацию ячейки"
+
+#: .\templates\inventory\manage\location_form.html:17
+msgid "Create Storage Location"
+msgstr "Создать место хранения"
+
+#: .\templates\inventory\manage\location_form.html:19
+msgid "Define warehouse topography and cell barcode for scanning"
+msgstr "Определите топографию склада и штрихкод ячейки для сканирования"
+
+#: .\templates\inventory\manage\location_form.html:81
+msgid "Save Location"
+msgstr "Сохранить место хранения"
+
+#: .\templates\inventory\manage\location_list.html:4
+msgid "Warehouse Topology & Locations"
+msgstr "Топология склада и места хранения"
+
+#: .\templates\inventory\manage\location_list.html:14
+msgid "Warehouse topographic layout: Zones, Racks, Shelves, and Cell Barcodes"
+msgstr "Топологическая схема склада: Зоны, Стеллажи, Полки и Штрихкоды ячеек"
+
+#: .\templates\inventory\manage\location_list.html:18
+msgid "Add Location"
+msgstr "Добавить место"
+
+#: .\templates\inventory\manage\location_list.html:31
+msgid "Search by zone, rack, shelf, cell, or barcode..."
+msgstr "Поиск по зоне, стеллажу, полке, ячейке или штрихкоду..."
+
+#: .\templates\inventory\manage\location_list.html:51
+msgid "Zone"
+msgstr "Зона"
+
+#: .\templates\inventory\manage\location_list.html:54
+msgid "Cell"
+msgstr "Ячейка"
+
+#: .\templates\inventory\manage\location_list.html:55
+msgid "Full Address"
+msgstr "Полный адрес"
+
+#: .\templates\inventory\manage\location_list.html:56
+msgid "Location Barcode"
+msgstr "Штрихкод места"
+
+#: .\templates\inventory\manage\location_list.html:106
+msgid "Are you sure you want to delete storage location"
+msgstr "Вы уверены, что хотите удалить место хранения"
+
+#: .\templates\inventory\manage\location_list.html:130
+msgid "No storage locations found"
+msgstr "Места хранения не найдены"
+
+#: .\templates\inventory\manage\location_list.html:131
+msgid "Try changing your search query or click 'Add Location'."
+msgstr "Попробуйте изменить поисковый запрос или нажмите «Добавить место»."
+
+#: .\templates\inventory\manage\product_form.html:5
+msgid "Edit Product"
+msgstr "Редактировать товар"
+
+#: .\templates\inventory\manage\product_form.html:5
+#: .\templates\inventory\product_list.html:15
+msgid "Add Product"
+msgstr "Добавить товар"
+
+#: .\templates\inventory\manage\product_form.html:17
+msgid "Edit Product Card"
+msgstr "Редактировать карточку товара"
+
+#: .\templates\inventory\manage\product_form.html:17
+msgid "Create New Product"
+msgstr "Создать новый товар"
+
+#: .\templates\inventory\manage\product_form.html:19
+msgid "Fill in the parameters for inventory tracking and warehouse operations"
+msgstr "Заполните параметры для складского учета и операций"
+
+#: .\templates\inventory\manage\product_form.html:121
+msgid "Save Product"
+msgstr "Сохранить товар"
+
+#: .\templates\inventory\product_details.html:32
+#: .\templates\inventory\product_list.html:51
+msgid "Unit"
+msgstr "Ед. изм."
+
+#: .\templates\inventory\product_details.html:35
+#: .\templates\inventory\product_list.html:52
+msgid "Min Stock"
+msgstr "Мин. остаток"
+
+#: .\templates\inventory\product_details.html:52
+msgid "Stock Locations Breakdown"
+msgstr "Разбивка по местам хранения"
+
+#: .\templates\inventory\product_details.html:54
+msgid "Total"
+msgstr "Итого"
+
+#: .\templates\inventory\product_details.html:62
+msgid "Zone - Rack - Shelf - Cell"
+msgstr "Зона - Стеллаж - Полка - Ячейка"
+
+#: .\templates\inventory\product_details.html:63
+#: .\templates\inventory\stock_balance_list.html:31
+msgid "Cell Barcode"
+msgstr "Штрихкод ячейки"
+
+#: .\templates\inventory\product_details.html:80
+msgid "This product is currently out of stock in all warehouse cells."
+msgstr "Товар в настоящее время отсутствует во всех ячейках склада."
+
+#: .\templates\inventory\product_list.html:11
+msgid "Inventory nomenclature and general stock balances"
+msgstr "Складская номенклатура и общие остатки"
+
+#: .\templates\inventory\product_list.html:28
+msgid "Search by product name, SKU, barcode, or category..."
+msgstr "Поиск по наименованию, артикулу, штрихкоду или категории..."
+
+#: .\templates\inventory\product_list.html:49
+msgid "Product Name"
+msgstr "Наименование товара"
+
+#: .\templates\inventory\product_list.html:74
+#: .\templates\orders\document_list.html:74
+msgid "View"
+msgstr "Просмотр"
+
+#: .\templates\inventory\product_list.html:100
+msgid "Are you sure you want to delete product"
+msgstr "Вы уверены, что хотите удалить товар"
+
+#: .\templates\inventory\product_list.html:100
+#: .\templates\inventory\stock_balance_list.html:29
+msgid "SKU"
+msgstr "Артикул"
+
+#: .\templates\inventory\product_list.html:124
+msgid "No products found"
+msgstr "Товары не найдены"
+
+#: .\templates\inventory\product_list.html:125
+msgid "Try changing your search query or click 'Add Product'."
+msgstr "Попробуйте изменить поисковый запрос или нажмите «Добавить товар»."
+
+#: .\templates\inventory\stock_balance_list.html:10
+msgid "Stock Balances Breakdown"
+msgstr "Детализация складских остатков"
+
+#: .\templates\inventory\stock_balance_list.html:11
+msgid "Real-time product availability across warehouse storage locations"
+msgstr "Наличие товаров на складе в реальном времени по местам хранения"
+
+#: .\templates\inventory\stock_balance_list.html:18
+msgid "Search by product name, SKU, or cell barcode..."
+msgstr "Поиск по наименованию, артикулу или штрихкоду ячейки..."
+
+#: .\templates\inventory\stock_balance_list.html:30
+msgid "Storage Location"
+msgstr "Место хранения"
+
+#: .\templates\inventory\stock_balance_list.html:56
+msgid "No stock balance entries found."
+msgstr "Записи об остатках не найдены."
+
+#: .\templates\orders\contractor_form.html:5
+msgid "Edit Contractor"
+msgstr "Редактировать контрагента"
+
+#: .\templates\orders\contractor_form.html:5
+#: .\templates\orders\contractor_list.html:18
+msgid "Add Contractor"
+msgstr "Добавить контрагента"
+
+#: .\templates\orders\contractor_form.html:17
+msgid "Edit Contractor Profile"
+msgstr "Редактировать профиль контрагента"
+
+#: .\templates\orders\contractor_form.html:17
+msgid "Create Contractor"
+msgstr "Создать контрагента"
+
+#: .\templates\orders\contractor_form.html:19
+msgid "Fill in the company details, type, and contact information"
+msgstr "Заполните реквизиты компании, тип и контактную информацию"
+
+#: .\templates\orders\contractor_form.html:94
+msgid "Save Contractor"
+msgstr "Сохранить контрагента"
+
+#: .\templates\orders\contractor_list.html:4
+msgid "Contractors Directory"
+msgstr "Справочник контрагентов"
+
+#: .\templates\orders\contractor_list.html:14
+msgid "Directory of suppliers, customers, and business partners"
+msgstr "Справочник поставщиков, клиентов и бизнес-партнеров"
+
+#: .\templates\orders\contractor_list.html:31
+msgid "Search by name, tax ID, phone, email, or address..."
+msgstr "Поиск по имени, ИНН, телефону, email или адресу..."
+
+#: .\templates\orders\contractor_list.html:51
+msgid "Contractor / Legal Entity"
+msgstr "Контрагент / Юр. лицо"
+
+#: .\templates\orders\contractor_list.html:52
+#: .\templates\orders\document_list.html:46
+#: .\templates\orders\reports_dashboard.html:114
+msgid "Type"
+msgstr "Тип"
+
+#: .\templates\orders\contractor_list.html:54
+msgid "Phone"
+msgstr "Телефон"
+
+#: .\templates\orders\contractor_list.html:55
+msgid "Email"
+msgstr "Email"
+
+#: .\templates\orders\contractor_list.html:123
+msgid "Are you sure you want to delete contractor"
+msgstr "Вы уверены, что хотите удалить контрагента"
+
+#: .\templates\orders\contractor_list.html:147
+msgid "No contractors found"
+msgstr "Контрагенты не найдены"
+
+#: .\templates\orders\contractor_list.html:148
+msgid "Try changing your search query or click 'Add Contractor'."
+msgstr "Попробуйте изменить поисковый запрос или нажмите «Добавить контрагента»."
+
+#: .\templates\orders\document_detail.html:25
+#: .\templates\orders\document_item_form.html:97
+msgid "Add Item"
+msgstr "Добавить позицию"
+
+#: .\templates\orders\document_detail.html:28
+msgid "Conduct"
+msgstr "Провести"
+
+#: .\templates\orders\document_detail.html:32
+msgid "Cancel Document"
+msgstr "Отменить документ"
+
+#: .\templates\orders\document_detail.html:42
+#: .\templates\orders\reports_dashboard.html:118
+msgid "Author"
+msgstr "Автор"
+
+#: .\templates\orders\document_detail.html:45
+msgid "Date Created"
+msgstr "Дата создания"
+
+#: .\templates\orders\document_detail.html:53
+msgid "Document Items"
+msgstr "Позиции документа"
+
+#: .\templates\orders\document_detail.html:60
+msgid "Source Location"
+msgstr "Место-источник"
+
+#: .\templates\orders\document_detail.html:61
+msgid "Target Location"
+msgstr "Место-получатель"
+
+#: .\templates\orders\document_detail.html:63
+msgid "Price"
+msgstr "Цена"
+
+#: .\templates\orders\document_detail.html:78
+msgid "No items added to this document yet."
+msgstr "В этот документ еще не добавлены позиции."
+
+#: .\templates\orders\document_form.html:5
+msgid "Edit Document"
+msgstr "Редактировать документ"
+
+#: .\templates\orders\document_form.html:5
+msgid "Create Stock Document"
+msgstr "Создать складской документ"
+
+#: .\templates\orders\document_form.html:17
+msgid "Edit Document Header"
+msgstr "Редактировать шапку документа"
+
+#: .\templates\orders\document_form.html:17
+msgid "Create New Stock Document"
+msgstr "Создать новый складской документ"
+
+#: .\templates\orders\document_form.html:19
+msgid "Set document number, movement type, and contractor details"
+msgstr "Укажите номер документа, тип движения и данные контрагента"
+
+#: .\templates\orders\document_form.html:62
+msgid ""
+"Select contractor for incoming/outgoing invoices (optional for internal "
+"transfers)."
+msgstr ""
+"Выберите контрагента для приходных/расходных документов (необязательно для внутренних перемещений)."
+
+#: .\templates\orders\document_form.html:86
+msgid "Save & Proceed to Items"
+msgstr "Сохранить и перейти к позициям"
+
+#: .\templates\orders\document_item_form.html:4
+msgid "Add Item to Document"
+msgstr "Добавить позицию в документ"
+
+#: .\templates\orders\document_item_form.html:15
+msgid "Add Item Row"
+msgstr "Добавить строку позиции"
+
+#: .\templates\orders\document_item_form.html:52
+msgid "Required for Outgoing and Transfer operations."
+msgstr "Обязательно для расходных операций и перемещений."
+
+#: .\templates\orders\document_item_form.html:63
+msgid "Required for Incoming and Transfer operations."
+msgstr "Обязательно для приходных операций и перемещений."
+
+#: .\templates\orders\document_item_form.html:94
+msgid "Back to Document"
+msgstr "Вернуться к документу"
+
+#: .\templates\orders\document_list.html:4
+msgid "Stock Documents Journal"
+msgstr "Журнал складских документов"
+
+#: .\templates\orders\document_list.html:11
+msgid "Incoming, outgoing, internal transfer and audit documents"
+msgstr "Приход, расход, внутреннее перемещение и документы инвентаризации"
+
+#: .\templates\orders\document_list.html:14
+msgid "New Document"
+msgstr "Новый документ"
+
+#: .\templates\orders\document_list.html:26
+msgid "Search by document number or contractor name..."
+msgstr "Поиск по номеру документа или имени контрагента..."
+
+#: .\templates\orders\document_list.html:45
+#: .\templates\orders\reports_dashboard.html:113
+msgid "Doc Number"
+msgstr "№ документа"
+
+#: .\templates\orders\document_list.html:48
+#: .\templates\orders\reports_dashboard.html:116
+msgid "Date"
+msgstr "Дата"
+
+#: .\templates\orders\document_list.html:83
+msgid "No stock documents found"
+msgstr "Складские документы не найдены"
+
+#: .\templates\orders\document_list.html:84
+msgid "Try changing your search query or create a new document."
+msgstr "Попробуйте изменить поисковый запрос или создайте новый документ."
+
+#: .\templates\orders\reports_dashboard.html:4
+msgid "Warehouse Reports & Analytics"
+msgstr "Складские отчеты и аналитика"
+
+#: .\templates\orders\reports_dashboard.html:11
+msgid "Analytics & Reports"
+msgstr "Аналитика и отчеты"
+
+#: .\templates\orders\reports_dashboard.html:12
+msgid ""
+"Comprehensive stock balances, document movements, and inventory analytics"
+msgstr ""
+"Комплексные остатки товаров, движение документов и аналитика запасов"
+
+#: .\templates\orders\reports_dashboard.html:27
+msgid "Document Movements"
+msgstr "Движение документов"
+
+#: .\templates\orders\reports_dashboard.html:33
+msgid "Low Stock / Deficit"
+msgstr "Дефицит / Низкие остатки"
+
+#: .\templates\orders\reports_dashboard.html:45
+msgid "Search product or location"
+msgstr "Поиск товара или места"
+
+#: .\templates\orders\reports_dashboard.html:46
+msgid "SKU, name, zone..."
+msgstr "Артикул, название, зона..."
+
+#: .\templates\orders\reports_dashboard.html:51
+msgid "All Categories"
+msgstr "Все категории"
+
+#: .\templates\orders\reports_dashboard.html:59
+msgid "Date From"
+msgstr "Дата с"
+
+#: .\templates\orders\reports_dashboard.html:63
+msgid "Date To"
+msgstr "Дата по"
+
+#: .\templates\orders\reports_dashboard.html:67
+msgid "Document Type"
+msgstr "Тип документа"
+
+#: .\templates\orders\reports_dashboard.html:69
+msgid "All Types"
+msgstr "Все типы"
+
+#: .\templates\orders\reports_dashboard.html:70
+msgid "Incoming"
+msgstr "Приход"
+
+#: .\templates\orders\reports_dashboard.html:71
+msgid "Outgoing"
+msgstr "Расход"
+
+#: .\templates\orders\reports_dashboard.html:72
+msgid "Transfer"
+msgstr "Перемещение"
+
+#: .\templates\orders\reports_dashboard.html:78
+msgid "All Contractors"
+msgstr "Все контрагенты"
+
+#: .\templates\orders\reports_dashboard.html:86
+msgid ""
+"This report displays all active products whose total quantity is equal to or "
+"below the minimum stock threshold."
+msgstr ""
+"В этом отчете отображаются все активные товары, общее количество которых равно "
+"или ниже минимального порога запаса."
+
+#: .\templates\orders\reports_dashboard.html:92
+msgid "Filter"
+msgstr "Фильтр"
+
+#: .\templates\orders\reports_dashboard.html:108
+msgid "Location"
+msgstr "Место хранения"
+
+#: .\templates\orders\reports_dashboard.html:124
+msgid "Current Stock"
+msgstr "Текущий запас"
+
+#: .\templates\orders\reports_dashboard.html:125
+msgid "Min Required"
+msgstr "Мин. требуемый"
+
+#: .\templates\orders\reports_dashboard.html:139
+msgid "No stock balance records found."
+msgstr "Записи об остатках товаров не найдены."
+
+#: .\templates\orders\reports_dashboard.html:159
+msgid "No documents found for selected period."
+msgstr "За выбранный период документы не найдены."
+
+#: .\templates\orders\reports_dashboard.html:171
+msgid "Wonderful! No low stock items detected."
+msgstr "Отлично! Товаров с низким остатком не обнаружено."

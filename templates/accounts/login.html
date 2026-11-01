@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}{% translate "Sign in" %} — WMS Control{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-12 col-md-6 col-lg-5">
+            <div class="card border-0 shadow-lg rounded-4 p-4 bg-white">
+                <div class="card-body">
+                    <div class="text-center mb-4">
+                        <i class="fa-solid fa-boxes-packing fa-3x text-warning mb-2"></i>
+                        <h2 class="h3 fw-bold mb-1">{% translate "WMS Control" %}</h2>
+                        <p class="text-muted small">{% translate "Warehouse Management System Authorization" %}</p>
+                    </div>
+                    
+                    <form method="post" novalidate>
+                        {% csrf_token %}
+                        {% if form.non_field_errors %}
+                            <div class="alert alert-danger rounded-3 mb-3">
+                                {% for error in form.non_field_errors %}
+                                    <div>{{ error }}</div>
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+
+                        <div class="mb-3">
+                            <label for="{{ form.username.id_for_label }}" class="form-label fw-medium">{% translate "Username" %}</label>
+                            <input type="text" name="username" id="{{ form.username.id_for_label }}" class="form-control form-control-lg rounded-3" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <label for="{{ form.password.id_for_label }}" class="form-label fw-medium">{% translate "Password" %}</label>
+                                <a href="{% url 'accounts:password_reset' %}" class="small text-decoration-none">{% translate "Forgot password?" %}</a>
+                            </div>
+                            <input type="password" name="password" id="{{ form.password.id_for_label }}" class="form-control form-control-lg rounded-3" required>
+                        </div>
+
+                        <div class="d-grid gap-2 mt-4">
+                            <button type="submit" class="btn btn-dark btn-lg fw-bold rounded-3 text-uppercase" style="background-color: var(--navbar-background-color-light); color: var(--navbar-text-color-dark); border: none;">
+                                {% translate "Sign in" %}
+                            </button>
+                        </div>
+                    </form>
+
+                    <div class="text-center mt-4 pt-3 border-top">
+                        <!-- <p class="small text-muted mb-0"> -->
+                            <!-- {% translate "Don't have an account?" %}  -->
+                            <!-- <a href="{% url 'accounts:register' %}" class="fw-semibold text-decoration-none">{% translate "Sign up" %}</a> -->
+                        <!-- </p> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

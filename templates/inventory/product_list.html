@@ -1,0 +1,134 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}{% translate "Products Catalog" %} — WMS Control{% endblock %}
+
+{% block content %}
+<div class="container py-4">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <div>
+            <h2 class="fw-bold mb-0"><i class="fa-solid fa-boxes-stacked me-2 text-warning"></i>{% translate "Products Catalog" %}</h2>
+            <p class="text-muted small mb-0">{% translate "Inventory nomenclature and general stock balances" %}</p>
+        </div>
+        {% if user.profile.role == 'manager' or user.profile.role == 'storekeeper' or user.is_superuser %}
+            <a href="{% url 'inventory:product_create' %}" class="btn btn-dark fw-semibold rounded-pill">
+                <i class="fa-solid fa-plus me-1"></i>{% translate "Add Product" %}
+            </a>
+        {% endif %}
+    </div>
+
+    <!-- Search Bar -->
+    <div class="card border-0 shadow-sm rounded-4 mb-4 p-3" style="background-color: var(--card-background-color-dark, #ffffff);">
+        <form method="get" action="" class="row g-2 align-items-center">
+            <div class="col-md-10">
+                <div class="input-group">
+                    <span class="input-group-text bg-transparent border-end-0 text-muted">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </span>
+                    <input type="text" name="q" value="{{ search_query }}" class="form-control border-start-0" placeholder="{% translate 'Search by product name, SKU, barcode, or category...' %}">
+                </div>
+            </div>
+            <div class="col-md-2 d-flex gap-2">
+                <button type="submit" class="btn btn-dark w-100 rounded-3">{% translate "Search" %}</button>
+                {% if search_query %}
+                    <a href="{% url 'inventory:product_list' %}" class="btn btn-outline-secondary rounded-3" title="{% translate 'Reset' %}">
+                        <i class="fa-solid fa-xmark"></i>
+                    </a>
+                {% endif %}
+            </div>
+        </form>
+    </div>
+
+    <!-- Таблица номенклатуры -->
+    <div class="card border-0 shadow-sm rounded-4 overflow-hidden">
+        <div class="table-responsive">
+            <table class="table table-hover align-middle mb-0">
+                <thead class="table-dark">
+                    <tr>
+                        <th scope="col">{% translate "SKU / Article" %}</th>
+                        <th scope="col">{% translate "Product Name" %}</th>
+                        <th scope="col">{% translate "Category" %}</th>
+                        <th scope="col">{% translate "Unit" %}</th>
+                        <th scope="col">{% translate "Min Stock" %}</th>
+                        <th scope="col" class="text-end">{% translate "Actions" %}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for product in products %}
+                        <tr>
+                            <td class="fw-bold font-monospace">
+                                <a href="{% url 'inventory:product_details' product.id %}" class="text-decoration-none text-warning">
+                                    {{ product.sku }}
+                                </a>
+                            </td>
+                            <td>
+                                <div class="fw-semibold">{{ product.name }}</div>
+                                {% if product.barcode %}
+                                    <small class="text-muted font-monospace"><i class="fa-solid fa-barcode me-1"></i>{{ product.barcode }}</small>
+                                {% endif %}
+                            </td>
+                            <td><span class="badge bg-secondary rounded-pill">{{ product.category.name }}</span></td>
+                            <td>{{ product.unit }}</td>
+                            <td>{{ product.min_stock }}</td>
+                            <td class="text-end">
+                                <a href="{% url 'inventory:product_details' product.id %}" class="btn btn-sm btn-outline-secondary rounded-circle me-1" title="{% translate 'View' %}">
+                                    <i class="fa-solid fa-eye"></i>
+                                </a>
+                                {% if user.profile.role == 'manager' or user.profile.role == 'storekeeper' or user.is_superuser %}
+                                    <a href="{% url 'inventory:product_update' product.id %}" class="btn btn-sm btn-outline-dark rounded-circle me-1" title="{% translate 'Edit' %}">
+                                        <i class="fa-solid fa-pen"></i>
+                                    </a>
+                                {% endif %}
+                                {% if user.profile.role == 'manager' or user.is_superuser %}
+                                    <!-- Кнопка вызова модального окна -->
+                                    <button type="button" class="btn btn-sm btn-outline-danger rounded-circle" data-bs-toggle="modal" data-bs-target="#deleteProductModal{{ product.id }}" title="{% translate 'Delete' %}">
+                                        <i class="fa-solid fa-trash"></i>
+                                    </button>
+
+                                    <!-- Модальное окно подтверждения удаления -->
+                                    <div class="modal fade" id="deleteProductModal{{ product.id }}" tabindex="-1" aria-hidden="true">
+                                        <div class="modal-dialog modal-dialog-centered">
+                                            <div class="modal-content border-0 shadow-lg rounded-4">
+                                                <div class="modal-header border-0 pb-0">
+                                                    <h5 class="modal-title fw-bold text-danger">
+                                                        <i class="fa-solid fa-triangle-exclamation me-2"></i>{% translate "Confirm Deletion" %}
+                                                    </h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                </div>
+                                                <div class="modal-body text-start py-3">
+                                                    <p class="mb-0">
+                                                        {% translate "Are you sure you want to delete product" %} <strong>"{{ product.name }}"</strong> ({% translate "SKU" %}: {{ product.sku }})?
+                                                    </p>
+                                                </div>
+                                                <div class="modal-footer border-0 pt-0">
+                                                    <button type="button" class="btn btn-outline-secondary rounded-pill px-3" data-bs-dismiss="modal">
+                                                        {% translate "Cancel" %}
+                                                    </button>
+                                                    <form method="post" action="{% url 'inventory:product_delete' product.id %}">
+                                                        {% csrf_token %}
+                                                        <button type="submit" class="btn btn-danger rounded-pill px-3">
+                                                            <i class="fa-solid fa-trash me-1"></i>{% translate "Delete" %}
+                                                        </button>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                {% endif %}
+                            </td>
+                        </tr>
+                    {% empty %}
+                        <tr>
+                            <td colspan="6" class="text-center py-5 text-muted">
+                                <i class="fa-solid fa-box-open fa-3x mb-3 d-block text-secondary"></i>
+                                <h5>{% translate "No products found" %}</h5>
+                                <p class="small mb-0">{% translate "Try changing your search query or click 'Add Product'." %}</p>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}

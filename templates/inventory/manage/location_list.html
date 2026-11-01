@@ -1,0 +1,140 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}{% translate "Warehouse Topology & Locations" %} — WMS Control{% endblock %}
+
+{% block content %}
+<div class="container py-4 py-lg-5">
+    <!-- Header Section -->
+    <div class="d-flex flex-wrap justify-content-between align-items-center gap-3 mb-4">
+        <div>
+            <h2 class="fw-bold mb-1">
+                <i class="fa-solid fa-warehouse text-warning me-2"></i>{% translate "Storage Locations" %}
+            </h2>
+            <p class="text-muted small mb-0">{% translate "Warehouse topographic layout: Zones, Racks, Shelves, and Cell Barcodes" %}</p>
+        </div>
+        {% if user.profile.role == 'manager' or user.is_superuser %}
+            <a href="{% url 'inventory:location_create' %}" class="btn btn-dark fw-bold rounded-pill px-4 shadow-sm" style="background-color: var(--navbar-background-color-light, #212529); color: var(--navbar-text-color-dark, #ffffff); border: none;">
+                <i class="fa-solid fa-plus me-2"></i>{% translate "Add Location" %}
+            </a>
+        {% endif %}
+    </div>
+
+    <!-- Search Bar -->
+    <div class="card border-0 shadow-sm rounded-4 mb-4 p-3" style="background-color: var(--card-background-color-dark, #ffffff);">
+        <form method="get" action="" class="row g-2 align-items-center">
+            <div class="col-md-10">
+                <div class="input-group">
+                    <span class="input-group-text bg-transparent border-end-0 text-muted">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </span>
+                    <input type="text" name="q" value="{{ search_query }}" class="form-control border-start-0" placeholder="{% translate 'Search by zone, rack, shelf, cell, or barcode...' %}">
+                </div>
+            </div>
+            <div class="col-md-2 d-flex gap-2">
+                <button type="submit" class="btn btn-dark w-100 rounded-3">{% translate "Search" %}</button>
+                {% if search_query %}
+                    <a href="{% url 'inventory:location_list' %}" class="btn btn-outline-secondary rounded-3" title="{% translate 'Reset' %}">
+                        <i class="fa-solid fa-xmark"></i>
+                    </a>
+                {% endif %}
+            </div>
+        </form>
+    </div>
+
+    <!-- Locations Table Card -->
+    <div class="card border-0 shadow-lg rounded-4 overflow-hidden" style="background-color: var(--card-background-color-dark, #ffffff);">
+        <div class="table-responsive">
+            <table class="table table-hover align-middle mb-0">
+                <thead class="table-dark">
+                    <tr>
+                        <th scope="col" class="ps-4">{% translate "Zone" %}</th>
+                        <th scope="col">{% translate "Rack" %}</th>
+                        <th scope="col">{% translate "Shelf / Level" %}</th>
+                        <th scope="col">{% translate "Cell" %}</th>
+                        <th scope="col">{% translate "Full Address" %}</th>
+                        <th scope="col">{% translate "Location Barcode" %}</th>
+                        {% if user.profile.role == 'manager' or user.is_superuser %}
+                            <th scope="col" class="text-end pe-4">{% translate "Actions" %}</th>
+                        {% endif %}
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for location in locations %}
+                        <tr>
+                            <td class="ps-4 fw-bold text-warning">
+                                <i class="fa-solid fa-layer-group me-1"></i>{{ location.zone }}
+                            </td>
+                            <td class="fw-semibold">{{ location.rack }}</td>
+                            <td>{{ location.shelf }}</td>
+                            <td>{{ location.cell }}</td>
+                            <td>
+                                <span class="badge bg-dark text-light font-monospace fs-6 rounded-pill px-3">
+                                    <i class="fa-solid fa-location-dot me-1 text-danger"></i>{{ location }}
+                                </span>
+                            </td>
+                            <td class="font-monospace text-muted small">
+                                {% if location.barcode %}
+                                    <i class="fa-solid fa-barcode me-1"></i>{{ location.barcode }}
+                                {% else %}
+                                    <span class="text-muted italic">—</span>
+                                {% endif %}
+                            </td>
+                            {% if user.profile.role == 'manager' or user.is_superuser %}
+                                <td class="text-end pe-4">
+                                    <a href="{% url 'inventory:location_update' location.pk %}" class="btn btn-sm btn-outline-dark rounded-circle me-1" title="{% translate 'Edit' %}">
+                                        <i class="fa-solid fa-pen"></i>
+                                    </a>
+
+                                    <!-- Кнопка удаления с модальным окном -->
+                                    <button type="button" class="btn btn-sm btn-outline-danger rounded-circle" data-bs-toggle="modal" data-bs-target="#deleteLocationModal{{ location.pk }}" title="{% translate 'Delete' %}">
+                                        <i class="fa-solid fa-trash"></i>
+                                    </button>
+
+                                    <!-- Модальное окно подтверждения удаления -->
+                                    <div class="modal fade" id="deleteLocationModal{{ location.pk }}" tabindex="-1" aria-hidden="true">
+                                        <div class="modal-dialog modal-dialog-centered">
+                                            <div class="modal-content border-0 shadow-lg rounded-4 text-start">
+                                                <div class="modal-header border-0 pb-0">
+                                                    <h5 class="modal-title fw-bold text-danger">
+                                                        <i class="fa-solid fa-triangle-exclamation me-2"></i>{% translate "Confirm Deletion" %}
+                                                    </h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                </div>
+                                                <div class="modal-body py-3">
+                                                    <p class="mb-0">
+                                                        {% translate "Are you sure you want to delete storage location" %} <strong>"{{ location }}"</strong>?
+                                                    </p>
+                                                </div>
+                                                <div class="modal-footer border-0 pt-0">
+                                                    <button type="button" class="btn btn-outline-secondary rounded-pill px-3" data-bs-dismiss="modal">
+                                                        {% translate "Cancel" %}
+                                                    </button>
+                                                    <form method="post" action="{% url 'inventory:location_delete' location.pk %}">
+                                                        {% csrf_token %}
+                                                        <button type="submit" class="btn btn-danger rounded-pill px-3">
+                                                            <i class="fa-solid fa-trash me-1"></i>{% translate "Delete" %}
+                                                        </button>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                            {% endif %}
+                        </tr>
+                    {% empty %}
+                        <tr>
+                            <td colspan="7" class="text-center py-5 text-muted">
+                                <i class="fa-solid fa-warehouse fa-3x mb-3 text-secondary d-block"></i>
+                                <h5>{% translate "No storage locations found" %}</h5>
+                                <p class="small mb-0">{% translate "Try changing your search query or click 'Add Location'." %}</p>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}

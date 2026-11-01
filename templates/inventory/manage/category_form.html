@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}
+    {% if object %}{% translate "Edit Category" %} — {{ object.name }}{% else %}{% translate "Add Category" %}{% endif %} — WMS Control
+{% endblock %}
+
+{% block content %}
+<div class="container py-4 py-lg-5">
+    <div class="row justify-content-center">
+        <div class="col-12 col-md-8 col-lg-6">
+            <div class="card border-0 shadow-lg rounded-4 p-4" style="background-color: var(--card-background-color-dark, #ffffff);">
+                <div class="d-flex align-items-center mb-4 pb-2 border-bottom">
+                    <i class="fa-solid fa-tags fa-2x text-warning me-3"></i>
+                    <div>
+                        <h3 class="fw-bold mb-0">
+                            {% if object %}{% translate "Edit Category" %}{% else %}{% translate "Create Category" %}{% endif %}
+                        </h3>
+                        <p class="text-muted small mb-0">{% translate "Nomenclature classification and sorting settings" %}</p>
+                    </div>
+                </div>
+
+                <form method="post" novalidate>
+                    {% csrf_token %}
+
+                    {% if form.non_field_errors %}
+                        <div class="alert alert-danger rounded-3 mb-4">
+                            {% for error in form.non_field_errors %}
+                                <div class="small"><i class="fa-solid fa-triangle-exclamation me-2"></i>{{ error }}</div>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+
+                    <div class="mb-3">
+                        <label for="{{ form.name.id_for_label }}" class="form-label fw-semibold small">
+                            {{ form.name.label }} <span class="text-danger">*</span>
+                        </label>
+                        {{ form.name }}
+                        {% if form.name.errors %}<div class="invalid-feedback d-block small">{{ form.name.errors.0 }}</div>{% endif %}
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="{{ form.display_order.id_for_label }}" class="form-label fw-semibold small">
+                            {{ form.display_order.label }}
+                        </label>
+                        {{ form.display_order }}
+                        {% if form.display_order.errors %}<div class="invalid-feedback d-block small">{{ form.display_order.errors.0 }}</div>{% endif %}
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="{{ form.description.id_for_label }}" class="form-label fw-semibold small">
+                            {{ form.description.label }}
+                        </label>
+                        {{ form.description }}
+                        {% if form.description.errors %}<div class="invalid-feedback d-block small">{{ form.description.errors.0 }}</div>{% endif %}
+                    </div>
+
+                    <div class="d-flex justify-content-between align-items-center mt-4 pt-3 border-top">
+                        <a href="{% url 'inventory:manage_category_list' %}" class="btn btn-outline-secondary rounded-pill fw-semibold px-4">
+                            <i class="fa-solid fa-arrow-left me-1"></i>{% translate "Cancel" %}
+                        </a>
+                        <button type="submit" class="btn btn-dark fw-bold rounded-pill px-4" style="background-color: var(--navbar-background-color-light, #212529); color: var(--navbar-text-color-dark, #ffffff); border: none;">
+                            <i class="fa-solid fa-floppy-disk me-1"></i>{% translate "Save Category" %}
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

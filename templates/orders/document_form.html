@@ -1,0 +1,94 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}
+    {% if object %}{% translate "Edit Document" %} №{{ object.doc_number }}{% else %}{% translate "Create Stock Document" %}{% endif %} — WMS Control
+{% endblock %}
+
+{% block content %}
+<div class="container py-4 py-lg-5">
+    <div class="row justify-content-center">
+        <div class="col-12 col-md-8 col-lg-7">
+            <div class="card border-0 shadow-lg rounded-4 p-4" style="background-color: var(--card-background-color-dark, #ffffff);">
+                <div class="d-flex align-items-center mb-4 pb-2 border-bottom">
+                    <i class="fa-solid fa-file-circle-plus fa-2x text-warning me-3"></i>
+                    <div>
+                        <h3 class="fw-bold mb-0">
+                            {% if object %}{% translate "Edit Document Header" %}{% else %}{% translate "Create New Stock Document" %}{% endif %}
+                        </h3>
+                        <p class="text-muted small mb-0">{% translate "Set document number, movement type, and contractor details" %}</p>
+                    </div>
+                </div>
+
+                <form method="post" novalidate>
+                    {% csrf_token %}
+
+                    {% if form.non_field_errors %}
+                        <div class="alert alert-danger rounded-3 mb-4">
+                            {% for error in form.non_field_errors %}
+                                <div class="small"><i class="fa-solid fa-triangle-exclamation me-2"></i>{{ error }}</div>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+
+                    <div class="row g-3">
+                        <!-- Document Number & Type -->
+                        <div class="col-12 col-md-6">
+                            <label for="{{ form.doc_number.id_for_label }}" class="form-label fw-semibold small">
+                                {{ form.doc_number.label }} <span class="text-danger">*</span>
+                            </label>
+                            {{ form.doc_number }}
+                            {% if form.doc_number.errors %}
+                                <div class="invalid-feedback d-block small">{{ form.doc_number.errors.0 }}</div>
+                            {% endif %}
+                        </div>
+
+                        <div class="col-12 col-md-6">
+                            <label for="{{ form.doc_type.id_for_label }}" class="form-label fw-semibold small">
+                                {{ form.doc_type.label }} <span class="text-danger">*</span>
+                            </label>
+                            {{ form.doc_type }}
+                            {% if form.doc_type.errors %}
+                                <div class="invalid-feedback d-block small">{{ form.doc_type.errors.0 }}</div>
+                            {% endif %}
+                        </div>
+
+                        <!-- Contractor -->
+                        <div class="col-12">
+                            <label for="{{ form.contractor.id_for_label }}" class="form-label fw-semibold small">
+                                {{ form.contractor.label }}
+                            </label>
+                            {{ form.contractor }}
+                            <div class="form-text small">{% translate "Select contractor for incoming/outgoing invoices (optional for internal transfers)." %}</div>
+                            {% if form.contractor.errors %}
+                                <div class="invalid-feedback d-block small">{{ form.contractor.errors.0 }}</div>
+                            {% endif %}
+                        </div>
+
+                        <!-- Comment / Reason -->
+                        <div class="col-12">
+                            <label for="{{ form.comment.id_for_label }}" class="form-label fw-semibold small">
+                                {{ form.comment.label }}
+                            </label>
+                            {{ form.comment }}
+                            {% if form.comment.errors %}
+                                <div class="invalid-feedback d-block small">{{ form.comment.errors.0 }}</div>
+                            {% endif %}
+                        </div>
+                    </div>
+
+                    <!-- Action Buttons -->
+                    <div class="d-flex justify-content-between align-items-center mt-4 pt-3 border-top">
+                        <a href="{% if object %}{% url 'orders:document_detail' object.pk %}{% else %}{% url 'orders:document_list' %}{% endif %}" class="btn btn-outline-secondary rounded-pill fw-semibold px-4">
+                            <i class="fa-solid fa-arrow-left me-1"></i>{% translate "Cancel" %}
+                        </a>
+                        <button type="submit" class="btn btn-dark fw-bold rounded-pill px-4" style="background-color: var(--navbar-background-color-light, #212529); color: var(--navbar-text-color-dark, #ffffff); border: none;">
+                            <i class="fa-solid fa-floppy-disk me-1"></i>{% translate "Save & Proceed to Items" %}
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

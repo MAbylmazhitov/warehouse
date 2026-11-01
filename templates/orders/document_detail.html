@@ -1,0 +1,87 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}№{{ document.doc_number }} — WMS Control{% endblock %}
+
+{% block content %}
+<div class="container py-4 py-lg-5">
+    <div class="card border-0 shadow-lg rounded-4 p-4 mb-4">
+        <div class="d-flex flex-wrap justify-content-between align-items-center pb-3 border-bottom mb-3 gap-2">
+            <div>
+                <h3 class="fw-bold mb-1"><i class="fa-solid fa-file-lines text-warning me-2"></i>{% translate "Document" %} №{{ document.doc_number }}</h3>
+                <span class="badge bg-dark text-warning font-monospace fs-6">{{ document.get_doc_type_display }}</span>
+                {% if document.status == 'conducted' %}
+                    <span class="badge bg-success fs-6"><i class="fa-solid fa-circle-check me-1"></i>{{ document.get_status_display }}</span>
+                {% elif document.status == 'cancelled' %}
+                    <span class="badge bg-danger fs-6"><i class="fa-solid fa-ban me-1"></i>{{ document.get_status_display }}</span>
+                {% else %}
+                    <span class="badge bg-warning text-dark fs-6"><i class="fa-solid fa-pen-ruler me-1"></i>{{ document.get_status_display }}</span>
+                {% endif %}
+            </div>
+
+            <div class="d-flex gap-2">
+                {% if document.status == 'draft' %}
+                    <a href="{% url 'orders:document_item_create' document.pk %}" class="btn btn-outline-dark rounded-pill fw-semibold">
+                        <i class="fa-solid fa-plus me-1"></i>{% translate "Add Item" %}
+                    </a>
+                    <a href="{% url 'orders:document_conduct' document.pk %}" class="btn btn-success rounded-pill fw-bold px-4">
+                        <i class="fa-solid fa-play me-1"></i>{% translate "Conduct" %}
+                    </a>
+                {% elif document.status == 'conducted' %}
+                    <a href="{% url 'orders:document_cancel' document.pk %}" class="btn btn-outline-danger rounded-pill fw-semibold">
+                        <i class="fa-solid fa-ban me-1"></i>{% translate "Cancel Document" %}
+                    </a>
+                {% endif %}
+            </div>
+        </div>
+
+        <dl class="row mb-0 small">
+            <dt class="col-sm-3 text-muted">{% translate "Contractor" %}:</dt>
+            <dd class="col-sm-9 fw-semibold">{{ document.contractor.name|default:"—" }}</dd>
+
+            <dt class="col-sm-3 text-muted">{% translate "Author" %}:</dt>
+            <dd class="col-sm-9">{{ document.author.get_full_name|default:document.author.username }}</dd>
+
+            <dt class="col-sm-3 text-muted">{% translate "Date Created" %}:</dt>
+            <dd class="col-sm-9">{{ document.doc_date|date:"d.m.Y H:i:s" }}</dd>
+        </dl>
+    </div>
+
+    <!-- Табличная часть -->
+    <div class="card border-0 shadow-lg rounded-4 overflow-hidden">
+        <div class="card-header bg-dark text-white fw-bold py-3">
+            <i class="fa-solid fa-list me-2"></i>{% translate "Document Items" %}
+        </div>
+        <div class="table-responsive">
+            <table class="table table-hover align-middle mb-0">
+                <thead>
+                    <tr>
+                        <th scope="col" class="ps-4">{% translate "Product" %}</th>
+                        <th scope="col">{% translate "Source Location" %}</th>
+                        <th scope="col">{% translate "Target Location" %}</th>
+                        <th scope="col" class="text-end">{% translate "Quantity" %}</th>
+                        <th scope="col" class="text-end pe-4">{% translate "Price" %}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for item in document.items.all %}
+                        <tr>
+                            <td class="ps-4 fw-bold">{{ item.product.name }} <small class="text-muted font-monospace">({{ item.product.sku }})</small></td>
+                            <td>{{ item.source_location|default:"—" }}</td>
+                            <td>{{ item.target_location|default:"—" }}</td>
+                            <td class="text-end fw-bold">{{ item.quantity }} {{ item.product.unit }}</td>
+                            <td class="text-end pe-4 font-monospace">${{ item.price }}</td>
+                        </tr>
+                    {% empty %}
+                        <tr>
+                            <td colspan="5" class="text-center py-4 text-muted">
+                                {% translate "No items added to this document yet." %}
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,127 @@
+:root {
+    /* =========================================================
+        Основные цвета (Industrial & Warehouse / Складская логистика)
+        ========================================================= */
+
+    /* Navbar (Индустриальный тёмно-синий / Графит) */
+    --navbar-background-color-light: #1E293B; /* Глубокий slate-синий */
+    --navbar-background-color-dark: #0F172A;  /* Темный графит */
+    --navbar-text-color-light: #F8FAFC;       /* Чистый стальной белый */
+    --navbar-text-color-dark: #F59E0B;        /* Янтарный сигнальный акцент */
+
+    /* Header (Светло-стальная подложка) */
+    --header-background-color-light: #F8FAFC; /* Светло-серый металлик */
+    --header-background-color-dark: #E2E8F0;  /* Матовый стальной */
+    --header-text-color-light: #1E293B;       /* Тёмный slate-текст */
+    --header-text-color-dark: #0F172A;        /* Глубокий графитовый */
+
+    /* Main (Фон рабочей зоны WMS) */
+    --main-background-color-light: #FFFFFF;
+    --main-background-color-dark: #F1F5F9;    /* Светло-серый технологичный фон */
+    --main-text-color: #334155;               /* Мягкий тёмно-серый текст */
+    --main-header-color: #0F172A;             /* Заголовки цвета индастриал-графит */
+
+    /* Cards (Карточки ячеек, ТМЦ и документов) */
+    --card-background-color-light: #FFFFFF;
+    --card-background-color-dark: #E2E8F0;    /* Светло-стальной акцент карточек */
+    --card-text-color-light: #1E293B;
+    --card-text-color-dark: #0F172A;
+
+    /* Tables (Реестры накладных, остатков и инвентаризации) */
+    --table-background-color-light: #FFFFFF;
+    --table-background-color-dark: #F8FAFC;   /* Серый оттенок для чередования строк ("зебры") */
+    --table-text-color: #1E293B;
+
+    /* Footer (Тёмный индастриал) */
+    --footer-background-color-light: #0F172A; /* Тёмный графитовый */
+    --footer-background-color-dark: #020617;  /* Глубокий антрацит */
+    --footer-text-color-light: #94A3B8;       /* Мягкий стальной серый */
+    --footer-text-color-dark: #E2E8F0;        /* Светло-серый текст */
+
+    /* Badges/Rating (Янтарный складской маркер / Статус дефицита) */
+    --star-size: 30px;
+    --star-color: #F59E0B;                    /* Сигнальный янтарь (Внимание/Предупреждение) */
+    --star-background: #64748B;               /* Холодная сталь */
+}
+
+html {
+    font-size: 14px;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+/* Фокус полей и кнопок в янтарно-сигнальных тонах склада */
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+    box-shadow: 0 0 0 0.1rem #FFFFFF, 0 0 0 0.25rem #F59E0B;
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+/* Панель навигации склада */
+.navbar {
+    background-image: linear-gradient(45deg, var(--navbar-background-color-light), var(--navbar-background-color-dark));
+    padding: 8px 16px;
+}
+
+/* Цвет логотипа WMS */
+.navbar-brand {
+    color: var(--navbar-text-color-dark) !important;
+    font-weight: bold;
+    font-size: 24px;
+    letter-spacing: 0.5px;
+}
+
+/* Ссылки меню */
+.navbar-nav .nav-link {
+    color: var(--navbar-text-color-light) !important;
+    font-size: 16px;
+    margin-right: 15px;
+    transition: color 0.3s ease;
+}
+
+    /* Hover (Акцент при наведении — янтарный свет) */
+    .navbar-nav .nav-link:hover {
+        color: #FBBF24 !important;
+    }
+
+    /* Активная ссылка */
+    .navbar-nav .nav-link.active {
+        color: var(--navbar-text-color-dark) !important;
+        font-weight: bold;
+    }
+
+/* Кнопка-бургер */
+.navbar-toggler {
+    border-color: var(--navbar-text-color-dark) !important;
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;utf8,<svg stroke='%23F59E0B' viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'><path stroke='%23F59E0B' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/></svg>") !important;
+}
+
+body {
+    margin-bottom: 60px;
+    color: var(--main-text-color);
+    background-image: linear-gradient(135deg, var(--main-background-color-light), var(--main-background-color-dark));
+    background-attachment: fixed;
+}
+
+/* Оформление футера */
+/* Оформление футера */
+footer {
+    position: relative; /* или absolute, если используете прижатый футер через body */
+    bottom: 0;
+    width: 100%;
+    /* УДАЛЕНЫ white-space: nowrap; и line-height: 60px; из-за которых скрывалось меню! */
+    background-image: linear-gradient(45deg, var(--footer-background-color-light), var(--footer-background-color-dark));
+    color: var(--footer-text-color-light);
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+}

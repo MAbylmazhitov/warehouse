@@ -1,0 +1,91 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}{% translate "About Hub & WMS" %} — WMS Control{% endblock title %}
+
+{% block content %}
+<div class="container my-4 my-lg-5">
+    <!-- Секция описания WMS системы -->
+    <div class="row align-items-center mb-5">
+        <div class="col-lg-6 mb-4 mb-lg-0">
+            <h1 class="display-5 fw-bold mb-3 text-dark">
+                <i class="fa-solid fa-boxes-packing text-warning me-2"></i>{% translate "WMS Control Platform" %}
+            </h1>
+            <p class="lead text-muted">
+                {% translate "High-performance Warehouse Management System engineered for total control over logistics, inventory balances, and document flows." %}
+            </p>
+            <p class="text-secondary">
+                {% translate "Our platform provides comprehensive tools for warehouse space topology, target location addressing (Zone-Rack-Shelf-Cell), multi-role access control, and transactional stock document processing." %}
+            </p>
+            
+            <!-- Быстрые действия с новыми URL-маршрутами WMS -->
+            <div class="mt-4 d-flex flex-wrap gap-2">
+                <a href="{% url 'inventory:product_list' %}" class="btn btn-dark btn-lg px-4 rounded-pill fw-semibold shadow-sm">
+                    <i class="fa-solid fa-boxes-stacked me-2 text-warning"></i>{% translate "Explore Catalog" %}
+                </a>
+                <a href="{% url 'orders:document_list' %}" class="btn btn-outline-dark btn-lg px-4 rounded-pill fw-semibold">
+                    <i class="fa-solid fa-file-invoice me-2"></i>{% translate "Documents Journal" %}
+                </a>
+            </div>
+        </div>
+        
+        <!-- Главное изображение склада -->
+        <div class="col-lg-6">
+            <div class="shadow-lg rounded-4 overflow-hidden border">
+                <img src="{% static 'images/about1.jpg' %}" alt="Warehouse Interior" class="img-fluid w-100 object-fit-cover" style="max-height: 400px;">
+            </div>
+        </div>
+    </div>
+
+    <!-- Заголовок галереи и преимуществ -->
+    <div class="row text-center mb-4">
+        <div class="col-12">
+            <h2 class="fw-bold mb-2">{% translate "Logistics Hub Infrastructure" %}</h2>
+            <p class="text-muted">{% translate "Modern automated warehousing with precise item tracking and barcode addressing" %}</p>
+        </div>
+    </div>
+
+    <!-- Блок карточек склада -->
+    <div class="row g-4 mb-4">
+        <div class="col-md-4">
+            <div class="card border-0 shadow-sm h-100 rounded-4 overflow-hidden">
+                <img src="{% static 'images/about2.jpg' %}" alt="Storage Locations" class="card-img-top object-fit-cover" style="height: 240px;">
+                <div class="card-body bg-white p-3">
+                    <h6 class="fw-bold mb-1"><i class="fa-solid fa-layer-group text-warning me-2"></i>{% translate "Storage Topology" %}</h6>
+                    <p class="small text-muted mb-0">{% translate "Structured zones, racks, and shelf-cell addressing." %}</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card border-0 shadow-sm h-100 rounded-4 overflow-hidden">
+                <img src="{% static 'images/about3.jpg' %}" alt="Barcode Operations" class="card-img-top object-fit-cover" style="height: 240px;">
+                <div class="card-body bg-white p-3">
+                    <h6 class="fw-bold mb-1"><i class="fa-solid fa-barcode text-primary me-2"></i>{% translate "Barcode Scanning" %}</h6>
+                    <p class="small text-muted mb-0">{% translate "Fast identification of goods and storage locations." %}</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card border-0 shadow-sm h-100 rounded-4 overflow-hidden">
+                <img src="{% static 'images/about4.jpg' %}" alt="Document Workflow" class="card-img-top object-fit-cover" style="height: 240px;">
+                <div class="card-body bg-white p-3">
+                    <h6 class="fw-bold mb-1"><i class="fa-solid fa-file-shield text-success me-2"></i>{% translate "Audit & Documents" %}</h6>
+                    <p class="small text-muted mb-0">{% translate "Transactional incoming, outgoing, and transfer records." %}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Нижнее широкое фото комплекса -->
+    <div class="row">
+        <div class="col-12">
+            <div class="card border-0 shadow-sm rounded-4 overflow-hidden">
+                <img src="{% static 'images/about5.jpg' %}" alt="Logistics Center Overview" class="card-img-top object-fit-cover" style="height: 320px; width: 100%;">
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}
